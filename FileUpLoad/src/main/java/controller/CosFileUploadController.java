@@ -21,7 +21,7 @@ public class CosFileUploadController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("/cos/fileupload [GET]");
 	
-		request.getRequestDispatcher("/WEB-INF/views/cos/fileupload.jsp").forward(request, response);
+		request.getRequestDispatcher(request.getContextPath() + "/WEB-INF/views/cos/fileupload.jsp").forward(request, response);
 
 	}
 
@@ -31,7 +31,7 @@ public class CosFileUploadController extends HttpServlet {
 		
 		if ( !fileService.cosFuleupload(request) ) {
 			// COS 파일 업로드 실패
-			request.getRequestDispatcher("/WEB-INF/views/cos/error.jsp").forward(request, response);
+			request.getRequestDispatcher(request.getContextPath() + "/WEB-INF/views/cos/error.jsp").forward(request, response);
 			return;
 			
 		}

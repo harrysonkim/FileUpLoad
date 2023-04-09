@@ -19,7 +19,7 @@ public class FileListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.println("/commons/fileupload [GET]");
+		System.out.println(req.getContextPath() + "/commons/fileupload [GET]");
 
 		FileService fileService = new FileServiceImpl();
 		
@@ -28,7 +28,7 @@ public class FileListController extends HttpServlet {
 		req.setAttribute("FileList", FileList);
 		
 		// view를 지정하고 포워드
-		req.getRequestDispatcher("/WEB-INF/views/file/list.jsp").forward(req, resp);
+		req.getRequestDispatcher(req.getContextPath() + "/WEB-INF/views/file/list.jsp").forward(req, resp);
 	}
 
 

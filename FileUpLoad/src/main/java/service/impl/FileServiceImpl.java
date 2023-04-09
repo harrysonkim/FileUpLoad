@@ -268,7 +268,7 @@ public class FileServiceImpl implements FileService {
 
 				// 임시 보관하고 있는 파일을 실제 업로드 저장소로 옮기기
 
-				// 실제 파일 저장송
+				// 실제 파일 저장소
 				File uploadFolder = new File(context.getRealPath("upload"));
 				uploadFolder.mkdir();
 

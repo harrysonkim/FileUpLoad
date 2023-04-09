@@ -14,15 +14,15 @@ import service.impl.FileServiceImpl;
 @WebServlet("/commons/fileupload")
 public class CommonFileuploadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
 	private FileService fileService = new FileServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("/commons/fileupload [GET]");
+		System.out.println(req.getContextPath() + "/commons/fileupload [GET]");
 		
 		// view를 지정하고 포워드
-		req.getRequestDispatcher("/WEB-INF/views/commons/fileupload.jsp").forward(req, resp);
+		req.getRequestDispatcher(req.getContextPath() + "/WEB-INF/views/commons/fileupload.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -38,7 +38,7 @@ public class CommonFileuploadController extends HttpServlet {
 		
 		// 파일 업로드 처리 실패 시 에러 페이지 보여주기
 		if ( !result ) {
-			req.getRequestDispatcher("/WEB-INF/views/commons/error.jsp").forward(req, resp);
+			req.getRequestDispatcher(req.getContextPath() + "/WEB-INF/views/commons/error.jsp").forward(req, resp);
 			return;
 		}
 		
